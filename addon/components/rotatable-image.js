@@ -15,12 +15,13 @@ export default Em.Component.extend(DomElement, {
 
   handleLoaded: function() {
     var component = this;
+    component.set('loaded', false);
     this.$().children('img').one('load', function() {
       Em.run(function() {
         component.set('loaded', true);
       });
     }.bind(this));
-  }.on('didInsertElement'),
+  }.observes('src').on('didInsertElement'),
 
   actions: {
     onRotateImageRight: function() {
