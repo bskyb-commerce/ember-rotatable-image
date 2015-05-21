@@ -3,9 +3,9 @@ import DomElement from '../mixins/dom-element';
 
 export default Em.Component.extend(DomElement, {
   classNames: ['rotatable-image-container'],
-  classNameBindings: ['loading'],
+  classNameBindings: ['loaded'],
   attributeBindings: ['style'],
-  loading: true,
+  loaded: false,
 
   style: Em.computed('height', function() {
     var height = this.get('height');
@@ -17,9 +17,9 @@ export default Em.Component.extend(DomElement, {
     var component = this;
     this.$().children('img').one('load', function() {
       Em.run(function() {
-        component.set('loading', false);
+        component.set('loaded', true);
       });
-    });
+    }.bind(this));
   }.on('didInsertElement'),
 
   actions: {
