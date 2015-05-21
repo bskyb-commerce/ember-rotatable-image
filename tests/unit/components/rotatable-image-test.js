@@ -21,16 +21,16 @@ test('it renders', function() {
   equal(component._state, 'inDOM');
 });
 
-test('css classes are updated when loading is set', function() {
+test('css classes are updated when loaded is set', function() {
   expect(2);
 
   var component = this.subject();
 
-  equal(this.$().attr('class'), 'ember-view rotatable-image-container loading');
+  equal(this.$().attr('class'), 'ember-view rotatable-image-container');
 
   Ember.run(function() {
-    component.set('loading', false);
+    component.set('loaded', true);
   });
 
-  equal(this.$().attr('class'), 'ember-view rotatable-image-container');
+  equal(this.$().attr('class'), 'ember-view rotatable-image-container loaded');
 });
