@@ -1,3 +1,5 @@
+# DECOMMISSIONED
+
 # Ember-rotatable-image
 
 This README outlines the details of collaborating on this Ember addon.
